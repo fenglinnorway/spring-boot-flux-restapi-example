@@ -1,0 +1,25 @@
+@startuml
+participant Klient
+participant Integrasjonslag
+participant Fagsystem
+participant Brevtjeneste
+Klient --> Integrasjonslag : Opprett avtale
+activate Integrasjonslag
+Integrasjonslag --> Fagsystem : Opprett kunde
+activate Fagsystem
+Fagsystem --> Integrasjonslag : kundenummer
+deactivate Fagsystem
+Integrasjonslag --> Fagsystem : Opprett avtale
+activate Fagsystem
+Fagsystem --> Integrasjonslag : avtalenummer
+deactivate Fagsystem
+Integrasjonslag --> Brevtjeneste : Send avtale til kunde
+activate Brevtjeneste
+Brevtjeneste --> Integrasjonslag : Status på utsendelse
+deactivate Brevtjeneste
+Integrasjonslag --> Fagsystem : Oppdater status til "avtale sendt"
+activate Fagsystem
+Fagsystem --> Integrasjonslag : avtalestatus
+deactivate Fagsystem
+Integrasjonslag --> Klient : avtalenummer og status
+@enduml

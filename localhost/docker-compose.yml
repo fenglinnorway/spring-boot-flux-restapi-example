@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  brevtjeneste:
+    container_name: brevtjeneste
+    build:
+      context: ../brevtjeneste
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+
+  fagsystem:
+    container_name: fagsystem
+    build:
+      context: ../fagsystem
+      dockerfile: Dockerfile
+    ports:
+      - 8082:8082
+
+  integrasjonslag:
+    container_name: integrasjonslag
+    build:
+      context: ../integrasjonslag
+      dockerfile: Dockerfile
+    ports:
+      - 8083:8083
+
+  klient:
+    container_name: klient
+    build:
+      context: ../klient
+      dockerfile: Dockerfile
+    ports:
+      - 8084:8084
+
+networks:
+  default:
+    name: local_network
