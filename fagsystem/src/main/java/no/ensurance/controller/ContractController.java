@@ -25,8 +25,7 @@ public class ContractController {
         response.setCustomerNumber(uuid);
 
         response.setContractStatus(Status.STATUS.CUSTOMER_CREATED.name());
-        System.out.println("customer number: " + contract.toString());
-        System.out.println();
+        System.out.println("---customer created---: " + contract.toString() + "\n\n\n");
         return Mono.just(response);
     }
 
@@ -35,12 +34,11 @@ public class ContractController {
         Contract response = duplicateContract(contract);
 
         String uuid = UUID.randomUUID().toString();
-        System.out.println(contract.toString());
         // Generate a random UUID
         response.setContractNumber(uuid);
 
         response.setContractStatus(Status.STATUS.CONTRACT_CREATED.name());
-        System.out.println("contract number: " + contract.toString());
+        System.out.println("---contract created---: " + contract.toString());
         return Mono.just(response);
     }
     
@@ -52,11 +50,10 @@ public class ContractController {
         String uuid = UUID.randomUUID().toString();
         // Generate a random UUID
 
-        System.out.println("activated contract number: " + contract.toString());
+        System.out.println("---activated contract ---: " + contract.toString());
         response.setContractNumber(uuid);
 
         response.setContractStatus(Status.STATUS.CONTRACT_SEND.name());
-        System.out.println("contract number: " + uuid);
         return Mono.just(response);
     }
 
