@@ -34,7 +34,7 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = TestConfig.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 public class IntegrationLayerClientTests {
 
@@ -45,7 +45,6 @@ public class IntegrationLayerClientTests {
 
     @Autowired
     private WebTestClient webTestClient;
-    //private IntegrationLayerClient integrationLayerClient = mock(IntegrationLayerClient.class);
 
 
 
@@ -60,8 +59,8 @@ public class IntegrationLayerClientTests {
         contract.setContractStatus("created");
         contract.setCustomer(customer);
 
-        // Mockito.when(client.sendCustomer(customer))
-        // .thenReturn(Mono.just(contract));
+        Mockito.when(client.sendCustomer(customer))
+        .thenReturn(Mono.just(contract));
 
         webTestClient.post()
                 .uri("/customer")
@@ -72,6 +71,5 @@ public class IntegrationLayerClientTests {
                 .expectBody(Contract.class)
                 .isEqualTo(contract);
 
-        //Mockito.verify(client, Mockito.times(1)).sendCustomer(customer);
     }
 }

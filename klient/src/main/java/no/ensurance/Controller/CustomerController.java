@@ -17,15 +17,11 @@ public class CustomerController {
 
 
 
-    // @Autowired
-    // IntegrationLayerClient client;
+    @Autowired
+    IntegrationLayerClient client;
     @PostMapping
     public Mono<Contract> createContract(@RequestBody Customer customerMono){
         //System.out.println(customerMono.toString());
-        Contract contract = new Contract();
-        contract.setCustomer(customerMono);
-        contract.setContractNumber("xxxxx");
-        contract.setContractStatus("created");
-        return Mono.just(contract);
+        return client.sendCustomer(customerMono);
     }
 }
