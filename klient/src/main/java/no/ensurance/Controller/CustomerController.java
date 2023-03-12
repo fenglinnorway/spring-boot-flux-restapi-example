@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import no.ensurance.client.IntegrationLayerClient;
-import no.ensurance.model.*;
+import no.ensurance.api.model.*;
 
 @RestController
 @RequestMapping("customer")

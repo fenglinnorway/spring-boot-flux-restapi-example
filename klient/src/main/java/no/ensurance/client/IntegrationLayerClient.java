@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import no.ensurance.config.Configuration;
 
-import no.ensurance.model.*;
+import no.ensurance.api.model.*;
 
 
 public class IntegrationLayerClient {

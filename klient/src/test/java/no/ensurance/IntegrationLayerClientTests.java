@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 import no.ensurance.client.IntegrationLayerClient;
-import no.ensurance.model.Customer;
-import no.ensurance.model.Contract;
+import no.ensurance.api.model.Customer;
+import no.ensurance.api.model.Contract;
 
 import org.mockito.Mockito;
 
