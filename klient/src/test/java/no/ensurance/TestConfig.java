@@ -13,10 +13,7 @@ import no.ensurance.client.IntegrationLayerClient;
 @Configuration
 @ComponentScan(basePackages = "no.ensurance")
 public class TestConfig {
-    @Bean
-    public IntegrationLayerClient integrationLayerClient() {
-        return mock(IntegrationLayerClient.class);
-    }
+
     @Bean
     public ServletWebServerFactory servletWebServerFactory() {
         return new TomcatServletWebServerFactory();
