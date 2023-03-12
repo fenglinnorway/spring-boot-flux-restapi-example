@@ -1,29 +1,24 @@
 package no.ensurance.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
+import no.ensurance.api.model.Contract;
 
 @RestController
 public class SampleController {
 
 
-    @GetMapping("/sendmail")
-    public SampleResponse hello() {
-        SampleResponse response = new SampleResponse();
-        response.setMessage("mail sent!");
-        return response;
+    @PostMapping("/sendmail")
+    public Mono<Contract> hello(@RequestBody Contract contract) {
+
+
+        System.out.println("mail send for contract: " + contract.getContractNumber());
+        return Mono.just(contract);
+
+
     }
 
-    public static class SampleResponse {
-        private String message;
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-    }
 }
 

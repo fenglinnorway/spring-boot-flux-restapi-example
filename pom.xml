@@ -13,10 +13,11 @@
     <name>Ensurance Project</name>
 
     <modules>
+        <module>api</module>
         <module>klient</module>
-        <module>integrasjonslag</module>
         <module>brevtjeneste</module>
         <module>fagsystem</module>
+        <module>integrasjonslag</module>
     </modules>
 
 </project>

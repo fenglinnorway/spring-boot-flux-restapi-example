@@ -20,7 +20,7 @@ public class ContractController {
     @Autowired
     FagsystemClient fagsystemClient;
 
-    @PostMapping(value = "/createContract")
+    @PostMapping(value = "/createcontract")
     public Mono<Contract> createContract(@RequestBody Customer requestMono) {
         return processRequest(requestMono);
     }
@@ -31,7 +31,7 @@ public class ContractController {
 
         contract.setCustomer(request);
 
-        return fagsystemClient.createCustomer(contract);
+        return fagsystemClient.createCustomer(contract).flatMap(contract->);
 
     }
 }

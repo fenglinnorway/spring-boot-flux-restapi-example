@@ -8,7 +8,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8081:8081
-
+    networks:
+      - local_network
+      
   fagsystem:
     container_name: fagsystem
     build:
@@ -16,6 +18,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8082:8082
+    networks:
+      - local_network
 
   integrasjonslag:
     container_name: integrasjonslag
@@ -24,6 +28,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8083:8083
+    networks:
+      - local_network
 
   klient:
     container_name: klient
@@ -32,7 +38,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8084:8084
+    networks:
+      - local_network
 
 networks:
-  default:
-    name: local_network
+  local_network:
+    driver: bridge

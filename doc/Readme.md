@@ -64,3 +64,16 @@ $ curl https://start.spring.io/starter.zip \
 -d javaVersion=17 \
 -o ensurance.zip
 ```
+
+```
+$ curl https://start.spring.io/starter.zip \
+-d groupId=no.ensurance \
+-d type=maven-project \
+-d artifactId=api \
+-d name=api \
+-d description="api" \
+-d packageName=no.ensurance \
+-d packaging=jar \
+-d javaVersion=17 \
+-o ensurance.zip
+```
