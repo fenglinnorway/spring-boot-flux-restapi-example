@@ -63,7 +63,7 @@ public class FagsystemClient {
 
     public Mono<Contract> updateStatus(Contract contract) {
         return webClient.post()
-                .uri("/createcontract")
+                .uri("/activatecontract")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(contract))
                 .retrieve()
