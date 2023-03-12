@@ -43,11 +43,11 @@ public class FagsystemClient {
     }
 
 
-    public Mono<Contract> createContract(Customer customer) {
+    public Mono<Contract> createContract(Contract contract) {
         return webClient.post()
                 .uri("/createcontract")
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromValue(customer))
+                .body(BodyInserters.fromValue(contract))
                 .retrieve()
                 .bodyToMono(String.class)
                 .map(responseString -> {
@@ -61,11 +61,11 @@ public class FagsystemClient {
 
 
 
-    public Mono<Contract> updateStatus(Customer customer) {
+    public Mono<Contract> updateStatus(Contract contract) {
         return webClient.post()
                 .uri("/createcontract")
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromValue(customer))
+                .body(BodyInserters.fromValue(contract))
                 .retrieve()
                 .bodyToMono(String.class)
                 .map(responseString -> {

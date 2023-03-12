@@ -31,7 +31,19 @@ public class ContractController {
 
         contract.setCustomer(request);
 
-        return fagsystemClient.createCustomer(contract).flatMap(contract->);
+        return fagsystemClient.createCustomer(contract)
+        .flatMap(createdContract -> fagsystemClient.createContract(createdContract)
+        .flatMap(sendMail -> emailClient.sendEmail(sendMail))
+        .flatMap(createdContractWithCustomer -> fagsystemClient.updateStatus(createdContractWithCustomer)
+        .flatMap(updatedContractWithCustomer -> Mono.just(updatedContractWithCustomer))))
+        .onErrorResume(error -> {
+            System.err.println("Error occurred in createContract or sendEmail: " + error.getMessage());
+            return Mono.empty();
+        })
+        .onErrorResume(error -> {
+            System.err.println("Error occurred in createCustomer or updateStatus: " + error.getMessage());
+            return Mono.empty();
+        });
 
     }
 }

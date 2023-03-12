@@ -21,6 +21,6 @@ public class Configuration {
 
 
     public String getBrevtjenesteUrl() {
-        return integrasjonslagUrl;
+        return brevtjenesteUrl;
     }
 }

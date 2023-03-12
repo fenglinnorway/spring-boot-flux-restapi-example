@@ -25,11 +25,11 @@ public class EmailClient {
     }
 
 
-    public Mono<Contract> sendEmail(Customer customer) {
+    public Mono<Contract> sendEmail(Contract contract) {
         return webClient.post()
                 .uri("/sendmail")
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromValue(customer))
+                .body(BodyInserters.fromValue(contract))
                 .retrieve()
                 .bodyToMono(String.class)
                 .map(responseString -> {
