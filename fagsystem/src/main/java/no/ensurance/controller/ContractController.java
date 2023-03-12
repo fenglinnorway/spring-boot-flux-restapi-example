@@ -38,7 +38,7 @@ public class ContractController {
         response.setContractNumber(uuid);
 
         response.setContractStatus(Status.STATUS.CONTRACT_CREATED.name());
-        System.out.println("---contract created---: " + contract.toString());
+        System.out.println("---contract created---: " + contract.toString()+ "\n\n\n");
         return Mono.just(response);
     }
     
@@ -50,10 +50,10 @@ public class ContractController {
         String uuid = UUID.randomUUID().toString();
         // Generate a random UUID
 
-        System.out.println("---activated contract ---: " + contract.toString());
         response.setContractNumber(uuid);
 
         response.setContractStatus(Status.STATUS.CONTRACT_SEND.name());
+        System.out.println("---activated contract ---: " + contract.toString()+ "\n\n\n");
         return Mono.just(response);
     }
 
